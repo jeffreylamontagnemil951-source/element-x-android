@@ -7,11 +7,13 @@ export interface Env {
 type Role = "owner" | "admin" | "support" | "bot";
 type Principal = { id: string; role: Role; scopes: string[] };
 
-const json = (data: unknown, status = 200, headers: HeadersInit = {}) =>
-  new Response(JSON.stringify(data), {
-    status,
-    headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers },
-  });
+const json = (data: unknown, status = 200, headers: HeadersInit = {}) => {
+  const responseHeaders = new Headers(headers);
+  responseHeaders.set("content-type", "application/json; charset=utf-8");
+  responseHeaders.set("cache-control", "no-store");
+  responseHeaders.set("x-content-type-options", "nosniff");
+  return new Response(JSON.stringify(data), { status, headers: responseHeaders });
+};
 
 const hex = (bytes: ArrayBuffer) =>
   Array.from(new Uint8Array(bytes), b => b.toString(16).padStart(2, "0")).join("");
