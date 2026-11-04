@@ -11,12 +11,14 @@ This is the first backend foundation for MIKE GRAM. It is intentionally separate
 
 ## Local setup
 
-1. Install Node.js 20+ and Wrangler.
-2. From this directory, create a D1 database and replace the placeholder `database_id` in `wrangler.toml`.
-3. Apply the migration with `wrangler d1 migrations apply mikegram-core --local`.
-4. Set `OWNER_KEY_SHA256` as a Worker secret. Its value must be the lowercase SHA-256 hex digest of a long, randomly generated owner API key. Keep the original key outside the repository.
-5. Set `CORS_ORIGIN` to the exact production app/web origin before deployment. Do not use a wildcard origin with privileged endpoints.
-6. Run `wrangler dev` and check `GET /health`.
+1. Install Node.js 20+.
+2. Run `npm install` in this directory.
+3. Create a D1 database with `npx wrangler d1 create mikegram-core` and replace the placeholder `database_id` in `wrangler.toml` with the returned ID.
+4. Apply the schema locally with `npm run db:local`; apply it to the Cloudflare database with `npm run db:remote` only after reviewing the target account and database.
+5. Set `OWNER_KEY_SHA256` as a Worker secret. Its value must be the lowercase SHA-256 hex digest of a long, randomly generated owner API key. Keep the original key outside the repository.
+6. Set `CORS_ORIGIN` to the exact production app/web origin before deployment. Do not use a wildcard origin with privileged endpoints.
+7. Run `npm run typecheck`, then `npm run dev` and check `GET /health`.
+8. Deploy only after the security checklist below is complete, using `npm run deploy`.
 
 ## API
 
