@@ -11,7 +11,7 @@
     "db:remote": "wrangler d1 migrations apply mikegram-core --remote"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250620.0",
+    "@cloudflare/workers-types": "^5.20261103.1",
     "typescript": "^5.8.3",
     "wrangler": "^4.20.0"
   }
