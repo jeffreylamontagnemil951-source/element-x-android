@@ -9,5 +9,5 @@ CORS_ORIGIN = "https://mikegram.example"
 [[d1_databases]]
 binding = "DB"
 database_name = "mikegram-core"
-database_id = "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID"
+database_id = "decc735e-266b-453b-97a4-4bd0916b652a"
 migrations_dir = "migrations"
