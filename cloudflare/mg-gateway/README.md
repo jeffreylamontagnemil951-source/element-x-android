@@ -15,11 +15,11 @@ This Worker is the first deployed backend foundation for MIKE GRAM. It is intent
 
 - [x] D1 database created in the connected Cloudflare account.
 - [x] Initial schema applied: `api_tokens`, `support_volunteers`, and `audit_log`.
-- [x] Worker uploaded with the D1 binding.
+- [x] Worker deployed with the D1 binding and routed to 100% of production traffic.
 - [x] Android build-time gateway base URL registered in `BuildTimeConfig`.
 - [ ] Configure the owner bootstrap secret before enabling privileged management.
 - [ ] Set an exact CORS origin when the MIKE GRAM web admin portal is deployed.
-- [ ] Run an external `GET /health` smoke test and verify Android networking.
+- [ ] Run an external `GET /health` smoke test and verify Android networking. The deployment record is confirmed, but the runtime URL could not be fetched from this tool session.
 - [ ] Add rate limiting, token rotation/revocation UI, security tests, and alerting.
 
 The Worker upload and D1 schema setup succeeded. A direct external health check has not yet been independently confirmed. The privileged admin API remains unavailable until the owner secret is configured.
