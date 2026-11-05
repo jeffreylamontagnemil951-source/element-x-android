@@ -10,6 +10,7 @@ It uses the existing Matrix Rust SDK integration and Android application archite
 - Minimum Android version: inherited from the upstream project (Android 7.0 / API 24)
 - Visual direction: midnight navy, electric cyan, and white
 - Messaging network: public Matrix homeservers
+- API gateway: `https://mikegram-api-gateway.growref-admin.workers.dev`
 
 ## Development principles
 
@@ -31,4 +32,6 @@ It uses the existing Matrix Rust SDK integration and Android application archite
 
 ## Infrastructure status
 
-The Cloudflare services, official support Matrix identity, production homeserver, and owner authorization backend are not configured by this repository change. They must be provisioned and security-reviewed before the related features can be enabled.
+The Cloudflare D1 database `mikegram-core` has been created and its initial schema applied. The `mikegram-api-gateway` Worker has been uploaded and bound to D1. The Android build-time configuration now contains the public gateway URL.
+
+The owner bootstrap secret is not configured, the web CORS origin is intentionally unset, and external health-check plus Android request verification remain pending. The official support Matrix identity and production homeserver are also not configured. These must be completed before related user-facing features are enabled.
