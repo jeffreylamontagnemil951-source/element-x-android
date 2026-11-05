@@ -1,0 +1,15 @@
+name = "mikegram-api-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-11-04"
+workers_dev = true
+
+# Set this to the exact HTTPS origin when the MIKE GRAM web admin portal exists.
+# Native Android API requests do not require a browser CORS origin.
+[vars]
+CORS_ORIGIN = ""
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mikegram-core"
+database_id = "decc735e-266b-453b-97a4-4bd0916b652a"
+migrations_dir = "migrations"

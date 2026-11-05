@@ -1,0 +1,18 @@
+{
+  "name": "mikegram-api-gateway",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 migrations apply mikegram-core --local",
+    "db:remote": "wrangler d1 migrations apply mikegram-core --remote"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261103.1",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.20.0"
+  }
+}

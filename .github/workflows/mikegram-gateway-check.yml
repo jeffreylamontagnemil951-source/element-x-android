@@ -1,0 +1,38 @@
+name: MIKE GRAM Gateway Checks
+
+on:
+  push:
+    branches:
+      - "mikegram/**"
+    paths:
+      - "cloudflare/mg-gateway/**"
+      - ".github/workflows/mikegram-gateway-check.yml"
+  pull_request:
+    paths:
+      - "cloudflare/mg-gateway/**"
+      - ".github/workflows/mikegram-gateway-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  typecheck:
+    name: Gateway TypeScript validation
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cloudflare/mg-gateway
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: TypeScript check
+        run: npm run typecheck

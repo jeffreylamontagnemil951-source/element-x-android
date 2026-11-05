@@ -9,8 +9,9 @@
 package config
 
 object BuildTimeConfig {
-    const val APPLICATION_ID = "io.element.android.x"
-    const val APPLICATION_NAME = "Element X"
+    const val APPLICATION_ID = "com.mikegram.android"
+    const val APPLICATION_NAME = "MIKE GRAM"
+    const val URL_API_GATEWAY = "https://mikegram-api-gateway.growref-admin.workers.dev"
     val METADATA_HOST_REVERSED: String? = null
     val OAUTH_CLIENT_URL_PATH: String? = "apps/android"
     val URL_WEBSITE: String? = null
