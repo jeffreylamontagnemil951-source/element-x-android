@@ -1,6 +1,6 @@
 # MIKE GRAM Cloudflare API Gateway
 
-This Worker is the first deployed backend foundation for MIKE GRAM. It is intentionally separate from Matrix message transport: Matrix remains responsible for messaging and end-to-end encrypted content. The Worker stores support-directory metadata, API-token metadata, and administrative audit events.
+This Worker is the first deployed backend foundation for MIKE GRAM. It currently exposes a limited support-directory and administrative API; it is not yet the complete messenger backend, Bot API, story service, or chat transport. The complete intended product scope and phased implementation plan are in [MIKE GRAM Product Roadmap](../../docs/MIKEGRAM-PRODUCT-ROADMAP.md).
 
 ## Production components
 
@@ -9,7 +9,7 @@ This Worker is the first deployed backend foundation for MIKE GRAM. It is intent
 - Cloudflare D1: `mikegram-core`
 - D1 database ID: `decc735e-266b-453b-97a4-4bd0916b652a`
 - Android application ID: `com.mikegram.android`
-- Matrix: messaging, rooms, and end-to-end encrypted conversations.
+- Matrix: existing messaging foundation; cloud-chat defaults and optional Secret Chat architecture require a separate threat model and implementation plan.
 
 ## Deployment status
 
@@ -41,6 +41,7 @@ Admin requests use `Authorization: Bearer <token>`. The bootstrap owner key must
 - Do not give volunteers access to owner endpoints.
 - Use least-privilege API tokens, HTTPS, exact-origin CORS, and audit logs.
 - The official badge is server-controlled metadata; it is not a platform-issued Telegram/Matrix verification mark.
+- Do not treat this initial Worker as a completed implementation of the roadmap's account, bot, group/channel, stories, Stars, or moderation APIs.
 - Native Android requests do not require browser CORS. Configure the exact web origin only when the web admin portal is available.
 
 ## Local development
