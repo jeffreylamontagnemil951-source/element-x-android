@@ -2,6 +2,7 @@
 
 **Status:** Product scope and implementation plan. Items below are requirements or planned work, not claims that features are already implemented.
 
+**Execution tracker:** See [MIKE GRAM Implementation and Acceptance Tracker](MIKEGRAM-IMPLEMENTATION-TRACKER.md) for detailed open tasks and evidence required to close each delivery gate.
 ## 1. Product direction
 
 MIKE GRAM is an independent, Telegram-inspired communication platform built by heavily modifying the existing Element X Android foundation. Keep the upstream Android/Kotlin/Compose and Matrix SDK foundations where they are useful; do not restart from a blank project.
